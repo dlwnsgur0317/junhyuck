@@ -1,0 +1,199 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  display: flex;
+  background-color: #1b1b1b !important;
+}
+.navbar .searchBox {
+  width: 220px;
+  height: 40px;
+}
+.navbar .searchInput {
+  position: relative;
+  border-radius: 20px;
+}
+.navbar .searchIcon {
+  position: relative;
+  top: -30px;
+  left: 189px;
+}
+.navbar .navbarLogo {
+  cursor: pointer;
+}
+.navbar .menuContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 370px;
+}
+.navbar .menu {
+  color: white;
+  cursor: pointer;
+}
+.navbar .click {
+  color: #f8f344;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.navbar .loginWrap {
+  text-align: center;
+  cursor: pointer;
+}
+.navbar .loginWrap:hover .loginIcon, .navbar .loginWrap:hover .login {
+  color: #f8f344;
+}
+.navbar .login {
+  margin-top: -8px;
+}
+.navbar .login, .navbar .loginIcon {
+  color: white;
+  font-size: 10px;
+}
+
+@media (max-width: 920px) {
+  .navbar {
+    width: 920px;
+  }
+}
+.trainingContainer {
+  position: fixed;
+  display: flex;
+  z-index: 4;
+  transform: translateY(-100px);
+  width: 100%;
+  justify-content: space-around;
+  background-color: rgb(253, 253, 253);
+  transition: all 0.3s;
+}
+.trainingContainer .mainHr {
+  border-color: "black";
+}
+.trainingContainer .trainingMenu {
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+  width: 33.3333333%;
+  height: 54px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  transition: all 0.3s;
+  transform: translateY(0px);
+}
+.trainingContainer .trainingMenu:hover > .trainingWrap {
+  opacity: 1;
+  pointer-events: auto;
+}
+.trainingContainer .trainingMenu:hover > i {
+  transform: scaleY(-1);
+}
+.trainingContainer .trainingMenu:hover {
+  background-color: #fffef4;
+}
+.trainingContainer i {
+  transition: all 0.3s;
+}
+.trainingContainer .show {
+  display: block;
+}
+.trainingContainer .trainingWrap {
+  background-color: #fffef4;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: -17px;
+  position: relative;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.showOut {
+  transform: translateY(66px);
+}
+
+@media (max-width: 920px) {
+  .trainingContainer {
+    width: 920px;
+  }
+  .trainingContainer .mainHr {
+    width: 430px;
+  }
+  .trainingContainer .trainingMenu {
+    width: 306.6666666667px;
+  }
+}
+.informationContainer {
+  transform: translateY(66px);
+  background-image: url("../images/mainImg.jpeg");
+  overflow: auto;
+  background-repeat: no-repeat;
+  height: 600px;
+  background-size: 1000px auto;
+  background-attachment: fixed;
+  background-position: center top;
+  background-clip: content-box;
+  position: relative;
+}
+.informationContainer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.informationContainer .informationWrap {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.informationContainer .informationBox {
+  text-align: center;
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+@media (max-width: 920px) {
+  .informationContainer {
+    width: 920px;
+    background-size: 700px auto;
+    height: 458px;
+  }
+  .informationContainer .informationBox {
+    width: 500px;
+  }
+}
+.mainTrainingContainer {
+  background-color: #1b1b1b;
+  margin-top: 66px;
+  text-align: center;
+}
+.mainTrainingContainer .title {
+  color: white;
+  font-size: 50px;
+  letter-spacing: 12px;
+}
+.mainTrainingContainer .mainTrainingWrap {
+  display: flex;
+  justify-content: space-around;
+}
+.mainTrainingContainer .trainingBox {
+  width: 300px;
+  height: 300px;
+}
+.mainTrainingContainer .trainingTitle {
+  color: white;
+}
+
+.trainingPageContainer {
+  display: flex;
+  height: 100%;
+  position: fixed;
+  top: 66px;
+}
+.trainingPageContainer .sideMenuContainer {
+  text-align: center;
+  background-color: #fffef4;
+  height: 100%;
+  width: 300px;
+}/*# sourceMappingURL=test.css.map */
