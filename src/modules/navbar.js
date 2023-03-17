@@ -69,10 +69,10 @@ export const Navbar =() => {
           </div>
         </nav>
         <div className={`trainingContainer ${menu === 2 ? 'showOut' : null }`}>
-          {trainingMenu.map((arr, idx) => {
+          {trainingMenu.map((arr1, idx) => {
             return (
               <div
-                className={`trainingMenu`}
+                className={`trainingMenu ${menu === 0 ? 'none' : null}`}
                 key={idx}
                 onMouseEnter={() => {
                   setMenu(2);
@@ -80,9 +80,8 @@ export const Navbar =() => {
                 onMouseLeave={() => {
                   setMenu(0)
                 }}
-                onClick={() => {navigate(`/training/${arr.name}`); setMenu(0)}}
               >
-                {arr.name}
+                {arr1.name}
                 <i
                   className={`fa fa-angle-up ml-1 mt-3`}
                 ></i>
@@ -90,7 +89,10 @@ export const Navbar =() => {
                 <div className={`trainingWrap`}>
                 {trainingMenu[idx].menu.map((arr, idx2) => {
                   return (
-                      <div className={`trainingBox`}>
+                      <div 
+                        className={`trainingBox`}
+                        onClick={() => {navigate(`/training/${arr1.name}/${arr}`); setMenu(0)}}
+                      >
                         <div> {arr} </div>
                         {idx2+1 === trainingMenu[idx].menu.length ? null : <hr style={{width: "50%"}}></hr>}
                       
