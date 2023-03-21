@@ -85,9 +85,9 @@ export const Main = () => {
         <div className='mainTrainingContainer'>
           <div className='title '> Training </div>
             <div className='mainTrainingWrap'>
-              {training.map((arr) => {
+              {training.map((arr, idx) => {
                 return (
-                  <div className='trainingBox'>
+                  <div className='trainingBox' key={idx}>
                     <img></img>
                     <div className='trainingTitle'>zdasdsad</div>
                   </div>

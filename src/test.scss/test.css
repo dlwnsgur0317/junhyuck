@@ -199,4 +199,42 @@
   background-color: #fffef4;
   height: 100%;
   width: 300px;
+}
+
+.loginContainer {
+  position: relative;
+  top: 200px;
+}
+.loginContainer .loginTitle {
+  width: 200px;
+}
+.loginContainer .imgWrap {
+  text-align: center;
+}
+.loginContainer .loginInputWrap {
+  width: 700px;
+  height: 430px;
+  background-color: #fffef4;
+  border-radius: 13px;
+  margin: auto;
+}
+.loginContainer .loginInputBox {
+  width: 550px;
+  margin: auto;
+}
+.loginContainer .inputLabel {
+  font-size: 30px;
+}
+.loginContainer .buttonWrap {
+  display: flex;
+  justify-content: space-between;
+}
+.loginContainer input {
+  border-radius: 14px;
+}
+.loginContainer button {
+  letter-spacing: 3px;
+  border-radius: 14px;
+  font-size: 20px;
+  background-color: #1b1b1b !important;
 }/*# sourceMappingURL=test.css.map */

@@ -204,7 +204,41 @@ $subColor : #f8f344;
         height: 100%;
         width: 300px;
     }
-    .mainTrainingWrap{
-    }
-
   }
+.loginContainer{
+    position: relative;
+    top: 200px;
+    .loginTitle{
+        width: 200px;
+    }
+    .imgWrap{
+        text-align: center;
+    }
+    .loginInputWrap{
+        width: 700px;
+        height: 430px;
+        background-color: #fffef4;
+        border-radius: 13px;
+        margin: auto;
+    }
+    .loginInputBox{
+        width: 550px;
+        margin: auto;
+    }
+    .inputLabel{
+        font-size: 30px;
+    }
+    .buttonWrap{
+        display: flex;
+        justify-content: space-between;
+    }
+    input{
+        border-radius: 14px;
+    }
+    button{
+        letter-spacing: 3px;
+        border-radius: 14px;
+        font-size: 20px;
+        background-color: $mainColor !important;
+    }
+}
