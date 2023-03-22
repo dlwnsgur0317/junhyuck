@@ -3,10 +3,16 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../api';
 import logo from '../images/blackLogo.png'
+import { useContext } from 'react';
+import {AuthContext} from '../comm/index'
+
+
 export const Login = () => {
 
     const navigate = useNavigate()
     const [userInfo,setUserInfo] = useState({id : '', pw : ''})
+
+    const {session, setSession} = useContext(AuthContext)
 
     const fnSetInfo = (item, val) => {
         if(item === 'id'){
@@ -28,6 +34,16 @@ export const Login = () => {
                 const response = await axios.post('http://localhost:8080/login', userInfo);
                 console.log(response.data);
                 if(response.data.message){
+                  (async () => {
+                    try {
+                      const response = await axios.get('http://localhost:8080/api/get-cookie');
+                      const cookieValue = response.data["connect.sid"];
+                      console.log(cookieValue);
+                      setSession(response.data["connect.sid"])
+                    } catch (error) {
+                      console.error(error);
+                    }
+                  })()
                   navigate('/')
                 }
             } catch (error) {

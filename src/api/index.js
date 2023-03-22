@@ -1,5 +1,4 @@
-import { postData } from "../comm"
-
+import { getData, postData } from "../comm"
 
 //테스트용
 export const test = async (data) => {
@@ -11,3 +10,7 @@ export const postLogin = async(data) => {
     return await postData(data, '/login')
 }
 
+//쿠키 가져오기
+export const getCookie = async(name) => {
+    return await getData(name, 'api/get-cookie')
+}

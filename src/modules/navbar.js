@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../images/logo.png'
 import { useNavigate } from 'react-router-dom'
-import { test } from '../api';
-import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { useContext } from 'react';
+import {AuthContext} from '../comm/index'
 
 const navMenu = ["Information", "Training", "Board"];
 const trainingMenu = [
@@ -21,6 +22,22 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [menu, setMenu] = useState(0);
+
+  //전역변수
+  const {session, setSession} = useContext(AuthContext)
+
+  const logOut = async () => {
+    if(window.confirm('로그아웃 하시겠습니까?')){
+      try {
+        const response = await axios.get('http://localhost:8080/clear-cookies');
+        console.log(response.data);
+        setSession(null);
+        navigate('/login')
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   const mouseOut = (item) => {
     if (item !== 1) {
@@ -86,15 +103,32 @@ export const Navbar = () => {
               })}
             </div>
             <div className="loginWrap">
-              <i className="fa fa-sign-in loginIcon"></i>
-              <div
-                className="login ml-1"
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                Login
-              </div>
+              
+              {!session ? (
+                <>
+                  <i className="fa fa-sign-in loginIcon"></i>
+                  <div
+                    className="login ml-1"
+                    onClick={() => {
+                      navigate("/login");
+                    }}
+                  >
+                    Login
+                  </div>
+                </>
+              ) : (
+                <>
+                  <i className="fa-solid fa-right-from-bracket loginIcon"></i>
+                  <div
+                    className="login ml-1"
+                    onClick={() => {
+                      logOut()
+                    }}
+                  >
+                    Logout
+                  </div>
+                </>
+              )}
             </div>
           </>
         )}
