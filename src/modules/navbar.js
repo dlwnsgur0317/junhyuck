@@ -16,8 +16,6 @@ const trainingMenu = [
   { name: "Drill", click: false, menu: ["Pass", "Drible", "Shoot", "E.T.C"] },
   { name: "Game", click: false, menu: ['Shooting Game', 'Pass Game', 'E.T.C'] },
 ];
-
-
 export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();

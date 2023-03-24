@@ -105,6 +105,11 @@ export const Login = () => {
             </form>
           </div>
         </div>
+        <div className='joinMembershipWrap mt-2'>
+          <div className='joinMembership' 
+            onClick={() => {navigate('/joinMember')}}
+          > | 회원가입 | </div>
+        </div>
       </div>
     </>
   );

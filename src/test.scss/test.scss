@@ -126,7 +126,7 @@ $subColor : #f8f344;
            width: 430px;
         }
         .trainingMenu{
-            width: (920px/3)
+            width: calc(920px / 3)
         }
     }
 }
@@ -240,5 +240,20 @@ $subColor : #f8f344;
         border-radius: 14px;
         font-size: 20px;
         background-color: $mainColor !important;
+    }
+    .joinMembership{
+        text-align: center;
+        color: #a3a3a3;
+        cursor: pointer;
+    }
+}
+.joinMemberContainer{
+    position: relative;
+    top: 66px;
+    width: 600px;
+    margin: auto;
+    .dateOfBirthWrap{
+        display: flex;
+
     }
 }

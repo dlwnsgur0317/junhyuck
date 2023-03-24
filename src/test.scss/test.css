@@ -237,4 +237,19 @@
   border-radius: 14px;
   font-size: 20px;
   background-color: #1b1b1b !important;
+}
+.loginContainer .joinMembership {
+  text-align: center;
+  color: #a3a3a3;
+  cursor: pointer;
+}
+
+.joinMemberContainer {
+  position: relative;
+  top: 66px;
+  width: 600px;
+  margin: auto;
+}
+.joinMemberContainer .dateOfBirthWrap {
+  display: flex;
 }/*# sourceMappingURL=test.css.map */

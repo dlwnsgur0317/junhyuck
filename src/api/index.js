@@ -14,3 +14,8 @@ export const postLogin = async(data) => {
 export const getCookie = async(name) => {
     return await getData(name, 'api/get-cookie')
 }
+
+// 회원가입
+export const postMembership = async(data) => {
+    return await postData(data, '/joinMember')
+}
