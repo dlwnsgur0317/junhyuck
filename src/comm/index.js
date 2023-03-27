@@ -25,4 +25,13 @@ export async function getData(name, url){
         console.error(error)    
     }
 }
+
+export async function postId(id, url){
+    try{
+        const response = await axios.post(`${HOST_URL}${url}`, id)
+        return response.data
+    } catch (error) {
+        console.error(error)    
+    }
+}
      

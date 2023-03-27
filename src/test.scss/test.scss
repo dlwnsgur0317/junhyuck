@@ -1,5 +1,6 @@
 $mainColor : #1b1b1b;
 $subColor : #f8f344;
+$thirdColor : #fffef4;
 
 .navbar{
     position: fixed;
@@ -19,6 +20,7 @@ $subColor : #f8f344;
         position: relative;
         top: -30px;
         left: 189px;
+        cursor: pointer;
     }
     .navbarLogo{
         cursor: pointer;
@@ -170,6 +172,7 @@ $subColor : #f8f344;
     }
 }
 
+//훈련 페이지
 .mainTrainingContainer{
     background-color: $mainColor;
     margin-top: 66px;
@@ -205,6 +208,8 @@ $subColor : #f8f344;
         width: 300px;
     }
   }
+
+//로그인 페이지
 .loginContainer{
     position: relative;
     top: 200px;
@@ -217,7 +222,7 @@ $subColor : #f8f344;
     .loginInputWrap{
         width: 700px;
         height: 430px;
-        background-color: #fffef4;
+        background-color: rgb(249, 249, 249);
         border-radius: 13px;
         margin: auto;
     }
@@ -241,19 +246,70 @@ $subColor : #f8f344;
         font-size: 20px;
         background-color: $mainColor !important;
     }
-    .joinMembership{
+    .joinMembershipWrap{
         text-align: center;
+    }
+    .joinMembership{
+        margin: auto;
         color: #a3a3a3;
+        cursor: pointer;
+        display: inline-block;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    label{
         cursor: pointer;
     }
 }
-.joinMemberContainer{
-    position: relative;
-    top: 66px;
+@media (max-width: 700px) {
+    .loginContainer{
+        .imgWrap{
+            width: 700px;
+        }
+        .joinMembershipWrap{
+            width: 700px;
+        }
+    }
+}
+
+//회원가입 페이지
+.backGround{
+    width: 100%;
+    height: 1000px;
+    background-color: rgb(249, 249, 249);
+}
+
+.joinMemberContainer {
     width: 600px;
     margin: auto;
-    .dateOfBirthWrap{
+    .titleImg{
+        text-align: center;
+    }
+    .dateOfBirthWrap {
         display: flex;
 
     }
-}
+    .phoneWrap{
+        display: flex;
+    }
+    .phone{
+        width: 438px;
+    }
+    .phoneButton{
+        height: 38px !important;
+    }
+    label{
+        font-weight: bold;
+        cursor: pointer;
+    }
+    img{
+        cursor: pointer;
+    }
+    small{
+        display: none;
+    }
+    .show{
+        display: block ;
+    }
+}   
