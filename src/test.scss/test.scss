@@ -313,3 +313,25 @@ $thirdColor : #fffef4;
         display: block ;
     }
 }   
+
+//작전판
+.boardContainer {
+    position: relative;
+    top: 66px;
+    display: flex;
+    .board {
+        width: 1356px;
+      }
+      .logo{
+        z-index: 2;
+        position: relative;
+        left:-746px;
+        top: 398px;
+        width: 150px;
+        height: 80px;
+        opacity: 0.3;
+      }
+      .changeBoard{
+        cursor: pointer;
+      }
+}

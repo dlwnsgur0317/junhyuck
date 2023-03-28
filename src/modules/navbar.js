@@ -43,9 +43,11 @@ export const Navbar = () => {
     }
   };
 
-  const moveMain = (item) => {
+  const movePage = (item) => {
     if (item === 0) {
       navigate("/");
+    }else if(item === 2){
+      navigate('/board')
     }
   };
 
@@ -94,7 +96,7 @@ export const Navbar = () => {
                             mouseOut(idx);
                           }}
                           onClick={() => {
-                            moveMain(idx);
+                            movePage(idx);
                           }}
                         >
                           {" "}

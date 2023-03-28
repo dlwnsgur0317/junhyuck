@@ -5,6 +5,7 @@ import { Navbar } from './modules/navbar';
 import { Training } from './pages/training';
 import { Login } from './pages/login';
 import { JoinMember } from './pages/joinMember';
+import { Board } from './pages/board';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/training/:id/:id' element={<Training/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/joinMember' element={<JoinMember/>}/>
+        <Route path='/board' element={<Board/>}/>
       </Routes>
     </>
   );

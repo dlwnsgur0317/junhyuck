@@ -300,4 +300,25 @@
 }
 .joinMemberContainer .show {
   display: block;
+}
+
+.boardContainer {
+  position: relative;
+  top: 66px;
+  display: flex;
+}
+.boardContainer .board {
+  width: 1356px;
+}
+.boardContainer .logo {
+  z-index: 2;
+  position: relative;
+  left: -746px;
+  top: 398px;
+  width: 150px;
+  height: 80px;
+  opacity: 0.3;
+}
+.boardContainer .changeBoard {
+  cursor: pointer;
 }/*# sourceMappingURL=test.css.map */
