@@ -306,9 +306,11 @@
   position: relative;
   top: 66px;
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 .boardContainer .board {
-  width: 1356px;
+  height: 90%;
 }
 .boardContainer .logo {
   z-index: 2;
@@ -319,6 +321,117 @@
   height: 80px;
   opacity: 0.3;
 }
-.boardContainer .changeBoard {
-  cursor: pointer;
+.boardContainer img {
+  position: absolute;
+}
+.boardContainer canvas, .boardContainer .canvas-container {
+  position: fixed;
+  width: 1220px !important;
+  height: 812px !important;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.boardContainer .menuContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: space-around;
+  left: 1216px;
+  height: 812px;
+}
+.boardContainer .buttonBox {
+  background-color: #1b1b1b;
+  height: 100%;
+  width: 132px;
+}
+.boardContainer button {
+  height: 90%;
+  width: 116px;
+  border-radius: 12px;
+  position: relative;
+  z-index: 3;
+}
+.boardContainer button i {
+  font-size: 25px;
+}
+.boardContainer .subMenuContainer {
+  position: absolute;
+  left: 1348px;
+  width: 22%;
+}
+.boardContainer .subMenuTitle {
+  font-size: 25px;
+  text-align: center;
+  text-align: center;
+}
+.boardContainer .subMenuWrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  height: 101px;
+}
+.boardContainer .range {
+  margin: auto;
+  width: 80%;
+}
+.boardContainer .allClear {
+  margin: auto;
+  width: 30%;
+  height: 40%;
+}
+.boardContainer .none {
+  background-color: #1b1b1b;
+  width: 100%;
+  height: 742.5px;
+  background-image: url("../images/logo.png");
+  background-repeat: repeat;
+  background-size: 233px;
+}
+.boardContainer .penTool {
+  margin: auto;
+}
+.boardContainer .playerColor {
+  margin: auto;
+}
+
+@media (max-width: 1587px) {
+  .boardContainer .board {
+    height: 85%;
+  }
+  .boardContainer canvas {
+    position: fixed;
+    width: 1152px !important;
+    height: 767px !important;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .boardContainer .menuContainer {
+    left: 1148px;
+    height: 766.5px;
+  }
+  .boardContainer .buttonBox {
+    background-color: #1b1b1b;
+    height: 100%;
+    width: 132px;
+  }
+  .boardContainer button {
+    height: 90%;
+    width: 116px;
+    border-radius: 12px;
+  }
+  .boardContainer button i {
+    font-size: 25px;
+  }
+  .boardContainer .subMenuContainer {
+    position: absolute;
+    left: 1280px;
+    width: 22%;
+  }
+  .boardContainer .none {
+    height: 697px;
+  }
 }/*# sourceMappingURL=test.css.map */

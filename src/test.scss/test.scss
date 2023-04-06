@@ -2,6 +2,7 @@ $mainColor : #1b1b1b;
 $subColor : #f8f344;
 $thirdColor : #fffef4;
 
+
 .navbar{
     position: fixed;
     width: 100%;
@@ -319,8 +320,10 @@ $thirdColor : #fffef4;
     position: relative;
     top: 66px;
     display: flex;
+    width: 100%;
+    height: 100%;
     .board {
-        width: 1356px;
+        height:90%;
       }
       .logo{
         z-index: 2;
@@ -331,7 +334,121 @@ $thirdColor : #fffef4;
         height: 80px;
         opacity: 0.3;
       }
-      .changeBoard{
-        cursor: pointer;
+      img{
+        position: absolute;
       }
+      canvas, .canvas-container{
+        position: fixed;
+        width: 1220px !important;
+        height: 812px !important;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+    .menuContainer{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      justify-content: space-around;
+      left:1216px;
+      height: 812px;
+    }
+    .buttonBox{
+      background-color: #1b1b1b;
+      height: 100%;
+      width: 132px;
+    }
+    button{
+      height: (90%);
+      width: 116px;
+      border-radius: 12px;
+      position: relative;
+      z-index: 3;
+      i{
+          font-size: 25px;
+      }
+    }
+    .subMenuContainer{
+        position: absolute;
+        left: 1348px;
+        width: 22%;
+    }
+    .subMenuTitle{
+      font-size:25px;
+      text-align: center;
+      text-align: center;
+    }
+    .subMenuWrap{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        text-align: center;
+        height: 101px;
+    }
+    .range{
+        margin: auto;
+        width: 80%;
+    }
+    .allClear{
+        margin: auto;
+        width: 30%;
+        height: 40%;
+    }
+    .none{
+      background-color: #1b1b1b;
+      width: 100%;
+      height: 742.5px;
+      background-image: url('../images/logo.png');
+      background-repeat: repeat;
+      background-size: 233px;
+
+    }
+    .penTool{
+        margin: auto;
+    }
+    .playerColor{
+        margin: auto;
+    }
+}
+@media (max-width:1587px) {
+    .boardContainer {
+     
+        .board {
+            height:85%;
+          }
+          canvas{
+            position: fixed;
+            width: 1152px !important;
+            height: 767px !important;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          }
+          .menuContainer{
+            left:1148px;
+            height: 766.5px;
+          }
+          .buttonBox{
+            background-color: #1b1b1b;
+            height: 100%;
+            width: 132px;
+          }
+          button{
+            height:90%;
+            width: 116px;
+            border-radius: 12px;
+            i{
+                font-size: 25px;
+            }
+          }
+          .subMenuContainer{
+            position: absolute;
+            left: 1280px;
+            width: 22%;
+        }
+        .none{
+            height: 697px;
+          }
+    }
 }
