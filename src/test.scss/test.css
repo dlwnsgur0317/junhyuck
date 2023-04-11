@@ -325,12 +325,8 @@
   position: absolute;
 }
 .boardContainer canvas, .boardContainer .canvas-container {
-  position: fixed;
   width: 1220px !important;
   height: 812px !important;
-  top: 0;
-  left: 0;
-  z-index: 1;
 }
 .boardContainer .menuContainer {
   display: flex;
@@ -366,21 +362,32 @@
   text-align: center;
 }
 .boardContainer .subMenuWrap {
-  text-align: center;
   display: flex;
   flex-direction: column;
   background-color: white;
   text-align: center;
   height: 101px;
 }
+.boardContainer .subMenuWrap2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  height: 101px;
+  width: 50%;
+}
 .boardContainer .range {
   margin: auto;
   width: 80%;
 }
+.boardContainer .allClearWrap {
+  margin-top: 50px;
+}
 .boardContainer .allClear {
   margin: auto;
-  width: 30%;
-  height: 40%;
+  width: 97px;
+  height: 40px;
 }
 .boardContainer .none {
   background-color: #1b1b1b;
@@ -390,11 +397,80 @@
   background-repeat: repeat;
   background-size: 233px;
 }
+.boardContainer .inputRangeWrap {
+  height: 50px;
+  text-align: center;
+  background-color: white;
+}
 .boardContainer .penTool {
   margin: auto;
 }
+.boardContainer .eraserMenuWrap {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  height: 200px;
+}
+.boardContainer .eraserImageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.boardContainer .eraserIcon {
+  background-position: center center;
+  background-clip: padding-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 50%;
+  border: solid #1b1b1b 3px;
+  background-image: url("../images/eraserIcon.png");
+  transition: all 0.3s;
+}
+.boardContainer .eraserIcon:hover {
+  border: solid #f8f344 3px;
+}
+.boardContainer .eraserIconClick {
+  border: solid #f8f344 3px !important;
+}
+.boardContainer #smallEraserIcon {
+  width: 30px;
+  height: 30px;
+}
+.boardContainer #middleEraserIcon {
+  width: 50px;
+  height: 50px;
+}
+.boardContainer #largeEraserIcon {
+  width: 80px;
+  height: 80px;
+}
+.boardContainer .playerInputWrap {
+  display: flex;
+}
 .boardContainer .playerColor {
   margin: auto;
+}
+.boardContainer .addPlayer, .boardContainer .addPlayer2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+}
+.boardContainer .addPlayer img, .boardContainer .addPlayer2 img {
+  width: 30px;
+  position: relative;
+  top: 10px;
+}
+.boardContainer .smallEraserCursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3" fill="white" opacity="0.7"/></svg>') 50 50, auto !important;
+}
+.boardContainer .middleEraserCursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3" fill="white" opacity="0.7"/></svg>') 50 50, auto !important;
+}
+.boardContainer .largeEraserCursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="white" opacity="0.35"/><circle cx="8" cy="8" r="5" fill="white" opacity="0.35"/></svg>') 60 60, auto !important;
 }
 
 @media (max-width: 1587px) {
@@ -402,12 +478,8 @@
     height: 85%;
   }
   .boardContainer canvas {
-    position: fixed;
     width: 1152px !important;
     height: 767px !important;
-    top: 0;
-    left: 0;
-    z-index: 1;
   }
   .boardContainer .menuContainer {
     left: 1148px;

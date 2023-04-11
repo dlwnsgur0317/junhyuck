@@ -23,16 +23,21 @@ export const Board = () => {
   const [tool, setTool] = useState("pen");
   const [brushColor, setBrushColor] = useState("black");
   const [brushSize, setBrushSize] = useState(10);
+  const [eraserSize, setEraserSize] = useState(12);
   const [isDrawing, setIsDrawing] = useState(false);
   const [canvas, setCanvas] = useState(null);
   const [toolName, setToolName] = useState("펜");
   const [field, setField] = useState(board);
   const [player1Color, setPlayer1Color] = useState('black')
-  const [playerSub, setPlaterSub] = useState('black')
+  const [player2Color, setPlayer2Color] = useState('#bdbb02')
+  const [player1Sub, setPlayer1Sub] = useState('black')
+  const [player2Sub, setPlayer2Sub] = useState('#bdbb02')
   const [playerSize, setPlayerSize] = useState(20)
+  const [eraserClick, setEraserClick] = useState('smallEraserIcon')
+
   
 
-
+console.log(eraserClick)
   const fnSetTool = (item, item2) => {
     if (item === "changeField") {
       fnChangeBoard();
@@ -49,7 +54,6 @@ export const Board = () => {
 
   //캔버스 만들기
   const canvasRef = useRef(null);
-
 
   useEffect(() => {
     if (canvas && tool === "changeField") {
@@ -85,6 +89,29 @@ export const Board = () => {
                strokeWidth: brushSize,
                globalCompositeOperation: "destination-out",
              });
+             if(tool === 'eraser'){
+                if(eraserClick === 'smallEraserIcon'){
+                  console.log('small')
+                  canvas.upperCanvasEl.classList.add("smallEraserCursor");
+                  canvas.upperCanvasEl.classList.remove("middleEraserCursor");
+                canvas.upperCanvasEl.classList.remove("largeEraserCursor");
+                }else if(eraserClick === 'middleEraserIcon'){
+                  console.log('middle')
+                  canvas.upperCanvasEl.classList.add("middleEraserCursor");
+                  canvas.upperCanvasEl.classList.remove("smallEraserCursor");
+                  canvas.upperCanvasEl.classList.remove("largeEraserCursor");
+                } else {
+                  console.log('large')
+                  canvas.upperCanvasEl.classList.add("largeEraserCursor");
+                  canvas.upperCanvasEl.classList.remove("smallEraserCursor");
+                  canvas.upperCanvasEl.classList.remove("middleEraserCursor");
+                }
+              
+            }else{
+                canvas.upperCanvasEl.classList.remove("smallEraserCursor");
+                canvas.upperCanvasEl.classList.remove("middleEraserCursor");
+                canvas.upperCanvasEl.classList.remove("largeEraserCursor");
+              }
     } else {
       const newCanvas = new fabric.Canvas(canvasRef.current, {
         isDrawingMode: tool === "pen" || tool === "eraser",
@@ -96,7 +123,6 @@ export const Board = () => {
                 strokeWidth: brushSize,
                 globalCompositeOperation: "destination-out",
               }),
-              
       });
 
       // Add background image
@@ -118,7 +144,7 @@ export const Board = () => {
       });
       setCanvas(newCanvas);
     }
-  }, [tool, brushSize, canvas, field]);
+  }, [tool, brushSize, canvas, field, eraserClick]);
 
   //캔버스 모두 지우기
   const fnClearCanvas = () => {
@@ -140,31 +166,28 @@ export const Board = () => {
     }
   }
 
-  //선수추가
-  const handleButtonClick = () => {
+  //선수1추가
+  const addPlayer1 = () => {
     const canvasMargin = 40;
     const left =
-      Math.random() * (canvas.width - canvasMargin * 2) + canvasMargin;
+      Math.random() * (canvas.width / 2 ) + canvasMargin;
     const top =
       Math.random() * (canvas.height - canvasMargin * 2) + canvasMargin;
-    const right =
-      Math.random() * (canvas.width - canvasMargin * 2) + canvasMargin;
     const bottom =
       Math.random() * (canvas.height - canvasMargin * 2) + canvasMargin;
     // Create the circular mask
     const circle = new fabric.Circle({
       left,
       top,
-      right,
       bottom,
       radius: playerSize,
       fill: player1Color,
       strokeWidth:5,
-      stroke: playerSub,
+      stroke: player1Sub,
     });
 
-    const playerNumber = canvas.getObjects().length;
-    const text = new fabric.Text(canvas.getObjects().length.toString(), {
+    const playerNumber = canvas.getObjects().filter(obj => obj.type === 'group').length+1
+    const text = new fabric.Text(playerNumber.toString(), {
       left: playerNumber < 10 ? left + playerSize-(playerSize/5) : left + playerSize-(playerSize/44*22),
       top: top + playerSize-(playerSize/20*11) ,
       fontSize: playerSize+4, // adjust the font size as desired
@@ -212,18 +235,103 @@ export const Board = () => {
       canvas.renderAll();
     });
 
+
     //요소 삭제
-    document.addEventListener("keydown", function(e) {
-      if (e.code === "Backspace") {
-        const activeObjects = canvas.getActiveObjects();
-        activeObjects.forEach(function(object) {
-          canvas.remove(object);
-        });
-        canvas.discardActiveObject().renderAll();
-        e.preventDefault();
-      }
-    });
+  document.addEventListener("keydown", function(e) {
+    if (e.code === "Backspace") {
+      const activeObjects = canvas.getActiveObjects();
+      activeObjects.forEach(function(object) {
+        canvas.remove(object);
+      });
+      canvas.discardActiveObject().renderAll();
+      e.preventDefault();
+    }
+  });
+    
   }; 
+
+   //선수2추가
+   const addPlayer2 = () => {
+    const canvasMargin = 40;
+    const left =
+  Math.random() * (canvas.width / 2 - canvasMargin * 2 ) + canvas.width / 2 + canvasMargin;
+const top =
+  Math.random() * (canvas.height - canvasMargin * 2) + canvasMargin;
+    // Create the circular mask
+    const circle2 = new fabric.Circle({
+      left,
+      top,
+      radius: playerSize,
+      fill: player2Color,
+      strokeWidth:5,
+      stroke: player2Sub,
+    });
+
+    const player2Number = canvas.getObjects().filter(obj => obj.type === 'group2').length+1qqqqqqqq
+    console.log(canvas.getObjects().filter(obj => obj.type === 'group2'))
+    const text2 = new fabric.Text(player2Number.toString(), {
+      left: player2Number < 10 ? left + playerSize-(playerSize/5) : left + playerSize-(playerSize/44*22),
+      top: top + playerSize-(playerSize/20*11) ,
+      fontSize: playerSize+4, // adjust the font size as desired
+      fill: player2Color === '#ffffff' ? 'black' : "white",
+    });
+    const group2 = new fabric.Group([circle2, text2], {
+      selectable: true,
+    });
+
+    canvas.add(group2);
+    canvas.renderAll();
+
+    //선수 색상 변경
+    const colorInput = document.getElementById("color");
+    colorInput.addEventListener("input", () => {
+      const selectedObjects = canvas.getActiveObjects();
+      if (selectedObjects.length >= 1) { // multiple objects selected
+        selectedObjects.forEach((obj) => {
+          if (obj instanceof fabric.Group) {
+            obj.getObjects().forEach((groupObj) => {
+              if (groupObj instanceof fabric.Circle) {
+                console.log('asd')
+                groupObj.set("fill", colorInput.value);
+                groupObj.set("stroke", colorInput.value);
+              }
+            });
+          }
+        });
+      }
+      canvas.renderAll();
+    });
+
+    //선수 크기 변경
+    const rangeInput = document.getElementById("range");
+
+    rangeInput.addEventListener("input", () => {
+      const groups = canvas.getObjects().filter((obj) => obj.type === "group");
+      const rangeValue = parseInt(rangeInput.value);
+
+      groups.forEach((group) => {
+        const scaleFactor = rangeValue / playerSize ;
+        group.scale(scaleFactor).setCoords();
+      });
+
+      canvas.renderAll();
+    });
+
+
+    //요소 삭제
+  document.addEventListener("keydown", function(e) {
+    if (e.code === "Backspace") {
+      const activeObjects = canvas.getActiveObjects();
+      activeObjects.forEach(function(object) {
+        canvas.remove(object);
+      });
+      canvas.discardActiveObject().renderAll();
+      e.preventDefault();
+    }
+  });
+  }; 
+
+  
 
   const fnChangeBoard = () => {
     setTool("pen");
@@ -270,9 +378,27 @@ export const Board = () => {
             brushSize={brushSize}
           />
         ) : tool === "eraser" ? (
-          <Eraser setBrushSize={setBrushSize} brushSize={brushSize} fnClearCanvas={fnClearCanvas}/>
+          <Eraser
+            eraserClick={eraserClick}
+            setEraserClick={setEraserClick}
+            tool={tool}
+            setEraserSize={setEraserSize}
+            brushSize={brushSize}
+            fnClearCanvas={fnClearCanvas}
+          />
         ) : tool === "player1" ? (
-          <Player handleButtonClick={handleButtonClick} player1Color={player1Color} setPlayer1Color={setPlayer1Color} plyerSize={playerSize} setPlayerSize={setPlayerSize} setPlaterSub={setPlaterSub}/>
+          <Player
+            addPlayer1={addPlayer1}
+            addPlayer2={addPlayer2}
+            player1Color={player1Color}
+            setPlayer1Color={setPlayer1Color}
+            plyerSize={playerSize}
+            setPlayerSize={setPlayerSize}
+            setPlayer1Sub={setPlayer1Sub}
+            setPlayer2Sub={setPlayer2Sub}
+            player2Color={player2Color}
+            setPlayer2Color={setPlayer2Color}
+          />
         ) : (
           <Nothing />
         )}
